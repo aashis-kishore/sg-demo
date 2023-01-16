@@ -1,0 +1,50 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "google",
+    "@nrwl/nx"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "@nrwl/nx/enforce-module-boundaries": [
+      "error",
+      {
+        "allow": [],
+        // update depConstraints based on your tags
+        "depConstraints": [
+          {
+            "sourceTag": "scope:shared",
+            "onlyDependOnLibsWithTags": [
+              "scope:shared"
+            ]
+          },
+          {
+            "sourceTag": "scope:admin",
+            "onlyDependOnLibsWithTags": [
+              "scope:shared",
+              "scope:admin"
+            ]
+          },
+          {
+            "sourceTag": "scope:core",
+            "onlyDependOnLibsWithTags": [
+              "scope:shared",
+              "scope:core"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
