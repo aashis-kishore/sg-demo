@@ -8,6 +8,7 @@ export class SgPayService implements BBPOU {
   constructor(private readonly payuService: PayUService) {}
 
   billersOfCategory(category: BillerCategory): Observable<string[]> {
+    console.log('remove this logging.');
     return this.payuService.billersOfCategory(category);
   }
   fetch(): Observable<void> {
