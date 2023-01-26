@@ -37,3 +37,14 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+#Project Docs
+/docs
+docs/libs/bbpou/billdesk
+docs/libs/bbpou/payu
+
+# Next.js
+.next
+
+# Docker
+.nx-container

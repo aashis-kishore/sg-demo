@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@sg-demo/bbpou": ["libs/bbpou/src/index.ts"],
+      "@sg-demo/bbpou/billdesk": ["libs/bbpou/billdesk/src/index.ts"],
+      "@sg-demo/bbpou/payu": ["libs/bbpou/payu/src/index.ts"],
+      "@sg-demo/bbpou/sgpay": ["libs/bbpou/sgpay/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

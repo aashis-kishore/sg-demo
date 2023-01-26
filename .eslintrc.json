@@ -5,8 +5,7 @@
     "node": true
   },
   "extends": [
-    "google",
-    "@nrwl/nx"
+    "google"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -14,9 +13,42 @@
     "sourceType": "module"
   },
   "plugins": [
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "eslint-plugin-tsdoc",
+    "@nrwl/nx"
   ],
   "rules": {
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error"
+    ],
+    "new-cap": [
+      "off",
+      {
+        "capIsNewExceptions": [
+          "Module",
+          "Controller",
+          "Injectable",
+          "Inject",
+          "Get",
+          "Resolver",
+          "Query",
+          "Mutation",
+          "Subscription",
+          "Args",
+          "ObjectType",
+          "Field",
+          "Directive",
+          "ArgsType",
+          "InputType"
+        ]
+      }
+    ],
+    "require-jsdoc": [
+      "warn"
+    ],
+    "valid-jsdoc": "off",
+    "tsdoc/syntax": "warn",
     "@nrwl/nx/enforce-module-boundaries": [
       "error",
       {
@@ -30,17 +62,45 @@
             ]
           },
           {
-            "sourceTag": "scope:admin",
-            "onlyDependOnLibsWithTags": [
-              "scope:shared",
-              "scope:admin"
-            ]
-          },
-          {
             "sourceTag": "scope:core",
             "onlyDependOnLibsWithTags": [
               "scope:shared",
+              "scope:bbpou",
+              "scope:bbpou-sgpay",
               "scope:core"
+            ]
+          },
+          {
+            "sourceTag": "scope:bbpou",
+            "onlyDependOnLibsWithTags": [
+              "scope:shared",
+              "scope:bbpou"
+            ]
+          },
+          {
+            "sourceTag": "scope:bbpou-payu",
+            "onlyDependOnLibsWithTags": [
+              "scope:shared",
+              "scope:bbpou",
+              "scope:bbpou-payu"
+            ]
+          },
+          {
+            "sourceTag": "scope:bbpou-billdesk",
+            "onlyDependOnLibsWithTags": [
+              "scope:shared",
+              "scope:bbpou",
+              "scope:bbpou-billdesk"
+            ]
+          },
+          {
+            "sourceTag": "scope:bbpou-sgpay",
+            "onlyDependOnLibsWithTags": [
+              "scope:shared",
+              "scope:bbpou",
+              "scope:bbpou-payu",
+              "scope:bbpou-billdesk",
+              "scope:bbpou-sgpay"
             ]
           }
         ]

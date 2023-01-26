@@ -1,0 +1,32 @@
+{
+  "name": "bbpou-payu",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/bbpou/payu/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/bbpou/payu/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/bbpou/payu/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "typedoc": {
+      "executor": "@enio.ai/typedoc:typedoc",
+      "outputs": ["docs/libs/bbpou/payu"],
+      "options": {
+        "options": "typedoc.json"
+      },
+      "configurations": {}
+    }
+  },
+  "tags": ["scope:bbpou-payu"]
+}

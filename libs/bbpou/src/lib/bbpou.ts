@@ -1,0 +1,46 @@
+import {Observable} from 'rxjs';
+
+/**
+ * Data is a good class
+ */
+export class Data {
+
+}
+
+export enum BillerCategory {
+  LOAN = 'LOAN',
+  INSURANCE = 'INSURANCE',
+  GAS = 'GAS',
+  ELECTRICITY = 'ELECTRICITY',
+  MOBILE_PREPAID = 'MOBILE PREPAID',
+  FASTAG = 'FASTAG',
+  EDUCATION = 'EDUCATION',
+  WATER = 'WATER',
+  ENTERTAINMENT = 'ENTERTAINMENT',
+  LANDLINE_POSTPAID = 'LANDLINE POSTPAID',
+  MOBILE_POSTPAID = 'MOBILE POSTPAID',
+  CABLE = 'CABLE',
+  DTH = 'DTH',
+  BROADBAND_POSTPAID = 'BROADBAND POSTPAID',
+  LPG_GAS = 'LPG GAS',
+  MUNICIPAL_TAXES = 'MUNICIPAL TAXES',
+  HOUSING_SOCIETY = 'HOUSING SOCIETY',
+  MUNICIPAL_SERVICES = 'MUNICIPAL SERVICES',
+  HOSPITAL = 'HOSPITAL',
+  SUBSCRIPTION = 'SUBSCRIPTION',
+  TRAVEL_SUB = 'TRAVEL-SUB',
+  CREDIT_CARD = 'CREDIT CARD',
+  TRANSIT_CARD = 'TRANSIT CARD',
+  CLUBS_AND_ASSOCIATIONS = 'CLUBS AND ASSOCIATIONS',
+  APARTMENT = 'APARTMENT',
+  RECURRING_DEPOSIT = 'RECURRING DEPOSIT'
+}
+
+/**
+ * BBPOU Public API
+ */
+export interface BBPOU {
+  billersOfCategory(category: BillerCategory): Observable<string[]>
+  fetch(): Observable<void>
+  payment(): Observable<void>
+}
