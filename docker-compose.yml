@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  bbpou-payu-wiremock:
+    container_name: bbpou-payu-wiremock
+    image: wiremock/wiremock:2.35.0
+    ports:
+      - "8080:8080"
+    volumes:
+      - $PWD/wiremock/bbpou-payu:/home/wiremock

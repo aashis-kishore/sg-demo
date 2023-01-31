@@ -1,0 +1,36 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/payu-nbc/v1/nbc/billfetchrequest"
+  },
+  "response": {
+    "fixedDelayMilliseconds": 1000,
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "code": 200,
+      "status": "SUCCESS",
+      "payload": {
+        "refId": "SNGRDXXXYYYXX3243",
+        "timeStamp": "2022-10-12",
+        "amount": "30.45",
+        "accountHolderName": "John Doe",
+        "dueDate": "2022-11-12",
+        "billDate": "2022-10-10",
+        "billerId": "BBGSDSD0",
+        "amountDetails": [
+          {
+            "<paramName>": "<paramNameValue>"
+          }
+        ],
+        "additionalParams": {
+          "Key1": "value1",
+          "Key2": "value2",
+          "Key3": "value3"
+        }
+      }
+    }
+  }
+}
