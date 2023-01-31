@@ -5,5 +5,8 @@ services:
     image: wiremock/wiremock:2.35.0
     ports:
       - "8080:8080"
+    # command: ['--extensions', 'org.wiremock.webhooks.Webhooks', '--global-response-templating', '--local-response-templating']
+    command: ['--verbose', '--extensions', 'org.wiremock.webhooks.Webhooks', '--local-response-templating']
     volumes:
       - $PWD/wiremock/bbpou-payu:/home/wiremock
+      - $PWD/wiremock/extensions:/var/wiremock/extensions
