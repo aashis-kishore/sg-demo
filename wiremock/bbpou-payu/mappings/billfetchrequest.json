@@ -10,7 +10,17 @@
     },
     "bodyPatterns": [
       {
-        "matchesJsonPath": "$[?(@.name == 'aashis')]"
+        "equalToJson": {
+          "agentId": "${json-unit.any-string}",
+          "billerId": "${json-unit.any-string}",
+          "customerName": "${json-unit.any-string}",
+          "customerParams": "${json-unit.ignore-element}",
+          "deviceDetails": "${json-unit.ignore-element}",
+          "timeStamp": "${json-unit.any-string}",
+          "refId": "${json-unit.any-string}"
+        },
+        "ignoreArrayOrder": true,
+        "ignoreExtraElements": true
       }
     ]
   },
@@ -25,11 +35,11 @@
       "status": "SUCCESS",
       "payload": {
         "refId": "{{jsonPath request.body '$.refId'}}",
-        "timeStamp": "2022-10-12",
-        "amount": "30.45",
-        "accountHolderName": "John Doe",
-        "dueDate": "2022-11-12",
-        "billDate": "2022-10-10",
+        "timeStamp": "{{jsonPath request.body '$.timeStamp'}}",
+        "amount": 325.13,
+        "accountHolderName": "{{upper (jsonPath request.body '$.customerName')}}",
+        "dueDate": "{{now offset='15 days' format='yyyy-MM-dd'}}",
+        "billDate": "{{now offset='-2 days' format='yyyy-MM-dd'}}",
         "billerId": "{{jsonPath request.body '$.billerId'}}",
         "amountDetails": [
           {
@@ -40,7 +50,10 @@
           "Key1": "value1",
           "Key2": "value2",
           "Key3": "value3"
-        }
+        },
+        "billNumber": "662871470040",
+        "billPeriod": "Monthly",
+        "approvalRefNum": "AB123456"
       }
     },
     "transformers": ["response-template"]
